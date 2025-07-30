@@ -1,12 +1,50 @@
-# React + Vite
+# 🚀 CodeWithYash
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **CodeWithYash**, a platform dedicated to helping developers learn, practice, and master coding skills!  
+This website is currently in the **building phase** and will soon provide resources on:
 
-Currently, two official plugins are available:
+- 💻 **DSA (Data Structures & Algorithms)**
+- 🌐 **Web Development**
+- 🛠 **System Design**
+- 📚 Coding Tips & Resources
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🏗️ **Status**
+🚧 **This website is under development.**  
+New features and pages are actively being built, so stay tuned for exciting updates!
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🔗 **Planned Features**
+✅ Hero section with coding resources  
+✅ Navbar with dropdown navigation  
+✅ Dedicated sections for DSA, Web Development & Resources  
+✅ Community and Contact pages  
+⬜ Interactive coding challenges (coming soon)  
+⬜ Blog section for tips & tutorials (coming soon)  
+
+---
+
+## 🛠️ **Tech Stack**
+- **Frontend:** React.js, Tailwind CSS  
+- **Routing:** React Router  
+- **Build Tool:** Vite  
+- **Version Control:** Git & GitHub  
+
+---
+
+## 🌟 **Contributions**
+Currently, contributions are **not open** while the core structure is being built.  
+Once the initial version is live, we’ll welcome contributions!
+
+---
+
+## 📢 **Stay Updated**
+Follow my journey:  
+- 🌐 Website (Coming Soon)  
+- 📸 [Instagram: @codewithyash3](https://www.instagram.com/codewithyash3/)  
+
+---
+
+### ✨ **Made with ❤️ by Yash Bisht**
