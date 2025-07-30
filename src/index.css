@@ -10,3 +10,16 @@
     color: #1e3a8a; /* Red */
     }
 }
+
+@keyframes colorFade {
+    0%, 100% {
+    color: white;
+    }
+    50% {
+    color: #2563eb; /* blue-600 */
+    }
+}
+
+.animate-colorFade {
+  animation: colorFade 2s ease-in-out infinite;
+}
