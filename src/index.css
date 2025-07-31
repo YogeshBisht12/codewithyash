@@ -23,3 +23,9 @@
 .animate-colorFade {
   animation: colorFade 2s ease-in-out infinite;
 }
+
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

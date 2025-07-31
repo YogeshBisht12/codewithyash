@@ -87,7 +87,7 @@ export default function Navbar() {
                 <div className="absolute top-16 right-4 bg-gray-800 text-white w-48 rounded-lg shadow-lg p-4 md:hidden">
                     <Link to="/" className="block py-2 hover:text-blue-600">Home</Link>
                     <Link to="/explore/dsa" className="block py-2 hover:text-blue-600">DSA Problems</Link>
-                    <Link to="/explore/webdev" className="block py-2 hover:text-blue-600">Web Development</Link>
+                    <Link to="/explore/Webdev" className="block py-2 hover:text-blue-600">Web Development</Link>
                     <Link to="/explore/system-design" className="block py-2 hover:text-blue-600">System Design</Link>
                     <Link to="/resources" className="block py-2 hover:text-blue-600">Resources</Link>
                     <Link to="/contact" className="block py-2 hover:text-blue-600">Contact</Link>
