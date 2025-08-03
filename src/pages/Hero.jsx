@@ -1,4 +1,4 @@
-import InstagramFeed from "./InstagramFeed";
+import InstagramFeed from "../components/InstagramFeed";
 import RippleCanvas from "../components/RippleCanvas"; // ✅ Import ripple effect
 
 export default function Hero() {
@@ -27,10 +27,10 @@ export default function Hero() {
                         Web dev resources & coding tips — all in one place!
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
-                        <button className="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-black transition text-base sm:text-lg">
+                        <button className="bg-transparent border  border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition font-medium">
                             Start Exploring
                         </button>
-                        <button className="bg-white text-[#0D1117] px-6 py-3 rounded-lg hover:bg-blue-900 hover:text-white transition text-base sm:text-lg">
+                        <button className="bg-transparent border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition font-medium">
                             Join Instagram
                         </button>
                     </div>

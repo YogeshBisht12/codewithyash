@@ -4,16 +4,16 @@ import Logo from "./Logo";
 
 export default function Navbar() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false); 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <nav className="flex items-center justify-between px-6 sm:px-8 py-4 bg-[#0D1117] sticky top-0 z-50 shadow-[0_0_20px_rgba(30,58,138,0.8)]">  
+        <nav className="flex items-center justify-between px-6 sm:px-8 py-4 bg-[#0D1117] sticky top-0 z-50 shadow-[0_0_20px_rgba(30,58,138,0.8)]">
             <Logo />
+
+            {/* Desktop Menu */}
             <ul className="hidden md:flex gap-8 text-white font-medium text-lg items-center">
                 <li>
-                    <Link to="/" className="hover:text-blue-600 transition">
-                        Home
-                    </Link>
+                    <Link to="/" className="hover:text-blue-600 transition">Home</Link>
                 </li>
 
                 <li
@@ -58,24 +58,30 @@ export default function Navbar() {
                 </li>
 
                 <li>
-                    <Link to="/resources" className="hover:text-blue-600 transition">
-                        Resources
-                    </Link>
+                    <Link to="/resources" className="hover:text-blue-600 transition">Resources</Link>
                 </li>
                 <li>
-                    <Link to="/contact" className="hover:text-blue-600 transition">
-                        Contact
-                    </Link>
+                    <Link to="/contact" className="hover:text-blue-600 transition">Contact</Link>
                 </li>
             </ul>
 
-            <Link
-                to="/login"
-                className="hidden md:inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium"
-            >
-                Login
-            </Link>
+            {/* Login & Signup Buttons Side by Side */}
+            <div className="hidden md:flex gap-3">
+                <Link
+                    to="/login"
+                    className="bg-transparent border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition font-medium"
+                >
+                    Login
+                </Link>
+                <Link
+                    to="/signup"
+                    className="bg-transparent border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition font-medium"
+                >
+                    Signup
+                </Link>
+            </div>
 
+            {/* Mobile Menu Button */}
             <button
                 className="md:hidden text-white text-2xl"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -83,15 +89,19 @@ export default function Navbar() {
                 ☰
             </button>
 
+            {/* Mobile Dropdown Menu */}
             {isMenuOpen && (
                 <div className="absolute top-16 right-4 bg-gray-800 text-white w-48 rounded-lg shadow-lg p-4 md:hidden">
                     <Link to="/" className="block py-2 hover:text-blue-600">Home</Link>
                     <Link to="/explore/dsa" className="block py-2 hover:text-blue-600">DSA Problems</Link>
-                    <Link to="/explore/Webdev" className="block py-2 hover:text-blue-600">Web Development</Link>
+                    <Link to="/explore/webdev" className="block py-2 hover:text-blue-600">Web Development</Link>
                     <Link to="/explore/system-design" className="block py-2 hover:text-blue-600">System Design</Link>
                     <Link to="/resources" className="block py-2 hover:text-blue-600">Resources</Link>
                     <Link to="/contact" className="block py-2 hover:text-blue-600">Contact</Link>
-                    <Link to="/login" className="block py-2 bg-blue-600 text-center rounded-lg hover:bg-blue-700 mt-2">Login</Link>
+                    <div className="flex gap-2 mt-3">
+                        <Link to="/login" className="flex-1 py-2 border border-blue-600 text-blue-600 text-center rounded-lg hover:bg-blue-600 hover:text-white">Login</Link>
+                        <Link to="/signup" className="flex-1 py-2 border border-blue-600 text-blue-600 text-center rounded-lg hover:bg-blue-600 hover:text-white">Signup</Link>
+                    </div>
                 </div>
             )}
         </nav>

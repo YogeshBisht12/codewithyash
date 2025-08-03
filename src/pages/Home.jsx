@@ -1,15 +1,15 @@
-import Hero from "../components/Hero";
-import Categories from "../components/Categories";
-import DSAProblem from "../components/DSAProblem";
-import Resources from "../components/Resources";
+import Hero from "./Hero";
+import Resources from "./Resources";
+import ExploreTopics from "./ExploreTopics";
+import Contact from "./Contact";
 
 export default function Home() {
     return (
     <>
         <Hero />
-        <Categories />
-        <DSAProblem />
+        <ExploreTopics />
         <Resources />
+        <Contact />
     </>
     );
 }
