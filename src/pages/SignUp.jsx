@@ -1,9 +1,7 @@
-import RippleCanvas from "../components/RippleCanvas";
 
 export default function Signup() {
     return (
         <section className="relative bg-[#0D1117] min-h-screen text-white flex flex-col items-center justify-center overflow-hidden">
-            <RippleCanvas />
 
             {/* Signup Card */}
             <div className="bg-[#1E2736] shadow-lg rounded-xl p-8 w-full max-w-md text-center z-10">
