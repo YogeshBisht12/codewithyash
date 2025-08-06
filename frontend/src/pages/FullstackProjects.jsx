@@ -5,21 +5,21 @@ export default function FullstackProjects() {
             desc: "A real-time chat app with authentication, WebSocket, and MongoDB.",
             icon: "💬",
             github: "https://github.com/YOUR_USERNAME/chitchat", 
-            demo: "https://chitchat-demo.vercel.app", 
+            demo: "chitchat-a1xa.onrender.com/", 
         },
         {
             title: "AURA (Virtual Assistant)",
             desc: "An AI-powered virtual assistant with voice commands and smart features.",
             icon: "🤖",
             github: "https://github.com/YOUR_USERNAME/aura",
-            demo: "https://aura-demo.vercel.app", 
+            demo: "aura-nzqh.vercel.app/", 
         },
         {
             title: "Portfolio Website",
             desc: "My personal developer portfolio showcasing skills and projects.",
             icon: "🌐",
             github: "https://github.com/YOUR_USERNAME/portfolio", 
-            demo: "https://yourportfolio.vercel.app", 
+            demo: "yogeshbishtportfolio.netlify.app/", 
         },
     ];
 
