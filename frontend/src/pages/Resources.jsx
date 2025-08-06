@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaGithub, FaFilePdf, FaBrain, FaCode } from "react-icons/fa"; // ✅ Added FaCode
+import { FaGithub, FaFilePdf, FaBrain, FaCode } from "react-icons/fa"; 
 import { RiRoadMapFill } from "react-icons/ri";
 
 gsap.registerPlugin(ScrollTrigger);

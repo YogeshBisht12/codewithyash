@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useAuth } from "../context/authContext"; // ✅ Import AuthContext
+import { useAuth } from "../context/authContext"; 
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
-  const { login } = useAuth(); // ✅ Use login function from AuthContext
+  const { login } = useAuth(); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,11 +18,11 @@ export default function Login() {
     try {
       const res = await axios.post("http://localhost:5001/api/auth/login", formData);
 
-      // ✅ Use context login (saves token & updates auth state)
+      
       login(res.data.token);
 
       alert("Login successful!");
-      navigate("/"); // redirect after login
+      navigate("/"); 
     } catch (err) {
       alert(err.response?.data?.message || "Login failed");
     }
@@ -36,7 +36,6 @@ export default function Login() {
           Welcome back! Login to access your coding dashboard.
         </p>
 
-        {/* Login Form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
             type="email"
@@ -62,7 +61,7 @@ export default function Login() {
           </button>
         </form>
 
-        {/* Signup Link */}
+        
         <div className="flex justify-center text-gray-400 text-sm mt-4">
           <p>
             New here?{" "}

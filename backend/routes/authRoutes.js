@@ -9,7 +9,7 @@ router.post('/login', login);
 
 
 router.get('/profile', protect, (req, res) => {
-  res.json(req.user); // user info from middleware
+  res.json(req.user); 
 });
 
 export default router;

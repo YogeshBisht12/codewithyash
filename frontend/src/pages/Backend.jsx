@@ -26,14 +26,14 @@ export default function Backend() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Animate heading
+            
             gsap.fromTo(
                 sectionRef.current.querySelector("h1"),
                 { opacity: 0, y: -40 },
                 { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
             );
 
-            // Animate cards
+            
             cardsRef.current.forEach((card, index) => {
                 gsap.fromTo(
                     card,
@@ -55,11 +55,11 @@ export default function Backend() {
 
     return (
         <section ref={sectionRef} className="min-h-screen bg-[#0D1117] text-white px-6 md:px-12 py-20 relative">
-            {/* Glow Effects */}
+            
             <div className="absolute w-[350px] h-[350px] bg-green-800 rounded-full blur-[160px] opacity-25 top-20 left-10"></div>
             <div className="absolute w-[300px] h-[300px] bg-yellow-700 rounded-full blur-[150px] opacity-20 bottom-10 right-10"></div>
 
-            {/* Heading */}
+            
             <div className="text-center relative z-10 mb-16">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">⚙️ Backend Development</h1>
                 <p className="text-gray-300 text-lg max-w-2xl mx-auto">
@@ -67,7 +67,7 @@ export default function Backend() {
                 </p>
             </div>
 
-            {/* Cards Grid */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto relative z-10">
                 {topics.map((item, index) => (
                     <div
@@ -79,7 +79,7 @@ export default function Backend() {
                         <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
                         <p className="text-gray-400 mb-4">{item.desc}</p>
 
-                        {/* Link Button */}
+                        
                         <a
                             href={item.link}
                             target="_blank"

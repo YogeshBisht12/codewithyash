@@ -31,7 +31,7 @@ export default function Contact() {
         return () => ctx.revert();
     }, []);
 
-    // ✅ Handle Form Submit
+    
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -53,7 +53,7 @@ export default function Contact() {
         <section ref={sectionRef} className="bg-[#0D1117] w-full min-h-screen px-6 md:px-12 flex flex-col items-center">
             <div className="w-full h-[2px] bg-blue-900 mb-20"></div>
             
-            {/* ✅ Heading */}
+            
             <div className="max-w-3xl text-center mb-10">
                 <h2 className="flex items-center justify-center gap-3 text-4xl md:text-5xl font-bold text-white mb-4">
                     <FaEnvelopeOpenText className="text-blue-400 animate-pulse" /> Get in Touch
@@ -61,7 +61,7 @@ export default function Contact() {
                 <p className="text-lg text-gray-400">Have questions, suggestions, or collaborations? Let's connect!</p>
             </div>
 
-            {/* ✅ Contact Form */}
+            
             <form ref={formRef} onSubmit={handleSubmit} className="bg-[#1E2736] p-8 rounded-xl shadow-lg w-full max-w-lg space-y-6 border border-gray-700">
                 <input ref={addFormFieldRef} type="text" name="name" placeholder="Your Name" required 
                     className="w-full px-4 py-3 rounded-lg bg-[#0D1117] border border-gray-700 text-white focus:outline-none focus:border-blue-600 transition"/>
@@ -75,7 +75,7 @@ export default function Contact() {
                 {status && <p className="text-center text-gray-300 mt-2">{status}</p>}
             </form>
 
-            {/* ✅ Social Icons */}
+            
             <div className="flex gap-6 mt-8">
                 <a ref={addSocialIconRef} href="https://instagram.com/codewithyash3" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 text-3xl transition-transform transform hover:scale-110">
                     <FaInstagram />

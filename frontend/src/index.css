@@ -4,10 +4,10 @@
 
 @keyframes colorPulse {
     0%, 100% {
-    color: #ffffff; /* White */
+    color: #ffffff; 
     }
     50% {
-    color: #1e3a8a; /* Red */
+    color: #1e3a8a;
     }
 }
 
@@ -16,7 +16,7 @@
     color: white;
     }
     50% {
-    color: #2563eb; /* blue-600 */
+    color: #2563eb; 
     }
 }
 

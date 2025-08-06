@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaPaintBrush, FaServer, FaProjectDiagram, FaMapMarkedAlt, FaLink } from "react-icons/fa";
-import { FaLaptopCode, FaCloudArrowUp } from "react-icons/fa6"; // Header + Deployment Icons
+import { FaLaptopCode, FaCloudArrowUp } from "react-icons/fa6"; 
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,12 +63,12 @@ export default function WebDev() {
 
   return (
     <section ref={sectionRef} className="relative bg-[#0D1117] min-h-screen text-white overflow-hidden px-6 md:px-12 pt-24 pb-16">
-      {/* Background Glows */}
+      
       <div className="absolute w-[400px] h-[400px] bg-blue-900 rounded-full blur-[180px] opacity-25 top-20 left-[-120px] animate-pulse"></div>
       <div className="absolute w-[350px] h-[350px] bg-purple-800 rounded-full blur-[160px] opacity-20 bottom-10 right-[-120px] animate-pulse"></div>
       <div className="absolute w-[250px] h-[250px] bg-pink-700 rounded-full blur-[140px] opacity-15 top-[60%] left-[40%] animate-pulse"></div>
 
-      {/* Heading */}
+      
       <div className="text-center mb-16 relative z-10 flex flex-col items-center gap-3">
         <div className="flex items-center gap-3">
           <FaLaptopCode className="text-blue-400 text-5xl animate-pulse" />
@@ -81,7 +81,7 @@ export default function WebDev() {
         </p>
       </div>
 
-      {/* Cards */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto relative z-10">
         {categories.map((item, index) => (
           <div
@@ -94,7 +94,7 @@ export default function WebDev() {
             <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
             <p className="text-gray-400 text-sm mb-6">{item.desc}</p>
 
-            {/* Button */}
+            
             <Link to={item.path} className="relative group w-fit mx-auto block">
               <button className="relative px-5 py-2 font-medium rounded-lg text-blue-400 border border-blue-500 w-[180px] overflow-hidden">
                 <span className="relative z-20 transition-colors duration-700 group-hover:text-white">

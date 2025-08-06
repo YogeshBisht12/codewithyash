@@ -4,32 +4,32 @@ export default function FullstackProjects() {
             title: "ChitChat (MERN Chat App)",
             desc: "A real-time chat app with authentication, WebSocket, and MongoDB.",
             icon: "💬",
-            github: "https://github.com/YOUR_USERNAME/chitchat", // ✅ Replace with actual GitHub repo
-            demo: "https://chitchat-demo.vercel.app", // ✅ Replace with live demo URL
+            github: "https://github.com/YOUR_USERNAME/chitchat", 
+            demo: "https://chitchat-demo.vercel.app", 
         },
         {
             title: "AURA (Virtual Assistant)",
             desc: "An AI-powered virtual assistant with voice commands and smart features.",
             icon: "🤖",
-            github: "https://github.com/YOUR_USERNAME/aura", // ✅ Replace with actual GitHub repo
-            demo: "https://aura-demo.vercel.app", // ✅ Replace with live demo URL
+            github: "https://github.com/YOUR_USERNAME/aura",
+            demo: "https://aura-demo.vercel.app", 
         },
         {
             title: "Portfolio Website",
             desc: "My personal developer portfolio showcasing skills and projects.",
             icon: "🌐",
-            github: "https://github.com/YOUR_USERNAME/portfolio", // ✅ Replace with actual GitHub repo
-            demo: "https://yourportfolio.vercel.app", // ✅ Replace with live portfolio link
+            github: "https://github.com/YOUR_USERNAME/portfolio", 
+            demo: "https://yourportfolio.vercel.app", 
         },
     ];
 
     return (
         <section className="min-h-screen bg-[#0D1117] text-white px-6 md:px-12 py-20 relative">
-            {/* Glow Effects */}
+            
             <div className="absolute w-[350px] h-[350px] bg-blue-800 rounded-full blur-[160px] opacity-25 top-20 left-10"></div>
             <div className="absolute w-[300px] h-[300px] bg-purple-700 rounded-full blur-[150px] opacity-20 bottom-10 right-10"></div>
 
-            {/* Heading */}
+            
             <div className="text-center mb-16 relative z-10">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">🌐 Fullstack Projects</h1>
                 <p className="text-gray-300 text-lg max-w-2xl mx-auto">
@@ -37,7 +37,7 @@ export default function FullstackProjects() {
                 </p>
             </div>
 
-            {/* Project Cards */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto relative z-10">
                 {projects.map((project, index) => (
                     <div
@@ -48,9 +48,9 @@ export default function FullstackProjects() {
                         <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
                         <p className="text-gray-400 mb-4">{project.desc}</p>
 
-                        {/* Buttons */}
+                        
                         <div className="flex gap-4 justify-center">
-                            {/* GitHub Button */}
+                            
                             <a
                                 href={project.github}
                                 target="_blank"
@@ -66,7 +66,7 @@ export default function FullstackProjects() {
                                 </button>
                             </a>
 
-                            {/* Live Demo Button */}
+                            
                             <a
                                 href={project.demo}
                                 target="_blank"

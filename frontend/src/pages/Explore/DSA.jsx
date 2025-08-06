@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaPlayCircle, FaChartLine, FaBuilding, FaStopwatch } from "react-icons/fa";
 import { MdLoop } from "react-icons/md";
 import { BsGraphUp } from "react-icons/bs";
-import { FaRocket } from "react-icons/fa6"; // 🚀 Modern Rocket Icon
+import { FaRocket } from "react-icons/fa6"; 
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,12 +54,12 @@ export default function DSA() {
 
     return (
         <section ref={sectionRef} className="relative bg-[#0D1117] min-h-screen text-white overflow-hidden px-6 md:px-12 pt-24 pb-16">
-            {/* Background Glow Effects */}
+            
             <div className="absolute w-[400px] h-[400px] bg-blue-800 rounded-full blur-[180px] opacity-20 top-10 left-[-100px]"></div>
             <div className="absolute w-[350px] h-[350px] bg-purple-800 rounded-full blur-[160px] opacity-20 bottom-10 right-[-100px]"></div>
             <div className="absolute w-[250px] h-[250px] bg-pink-700 rounded-full blur-[140px] opacity-15 top-[60%] left-[40%]"></div>
 
-            {/* Heading */}
+            
             <div className="text-center mb-16 relative z-10 flex flex-col items-center gap-3">
                 <div className="flex items-center gap-3">
                     <FaRocket className="text-blue-400 text-5xl animate-bounce" /> {/* 🚀 Animated Rocket */}
@@ -72,7 +72,7 @@ export default function DSA() {
                 </p>
             </div>
 
-            {/* Grid */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto relative z-10">
                 {categories.map((item, index) => (
                     <div

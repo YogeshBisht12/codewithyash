@@ -7,8 +7,8 @@ export default function Logout() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    logout(); // ✅ Clear token and auth state
-    navigate("/login"); // ✅ Redirect to login page
+    logout(); 
+    navigate("/login"); 
   }, [logout, navigate]);
 
   return (

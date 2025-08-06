@@ -8,9 +8,9 @@ export default function Navbar() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
     const { isAuthenticated, logout } = useAuth();
-    const location = useLocation(); // ✅ To highlight active link
+    const location = useLocation(); 
 
-    // ✅ Close dropdown on outside click
+    
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -21,7 +21,7 @@ export default function Navbar() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    // ✅ Animate dropdown when opened
+    
     useEffect(() => {
         if (isDropdownOpen && dropdownRef.current) {
             gsap.fromTo(
@@ -32,7 +32,7 @@ export default function Navbar() {
         }
     }, [isDropdownOpen]);
 
-    // ✅ Common Nav Link Component with underline animation
+    
     const NavLink = ({ to, label }) => {
         const isActive = location.pathname === to;
         return (
@@ -56,11 +56,11 @@ export default function Navbar() {
         <nav className="flex items-center justify-between px-6 sm:px-8 py-4 bg-[#0D1117] sticky top-0 z-50 shadow-[0_0_20px_rgba(30,58,138,0.8)]">
             <Logo />
 
-            {/* Desktop Menu */}
+            
             <ul className="hidden md:flex gap-8 font-medium text-lg items-center">
                 <li><NavLink to="/" label="Home" /></li>
 
-                {/* EXPLORE DROPDOWN */}
+                
                 <li className="relative" ref={dropdownRef}>
                     <button
                         onClick={() => setIsDropdownOpen((prev) => !prev)}

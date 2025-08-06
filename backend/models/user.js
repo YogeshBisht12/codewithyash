@@ -6,7 +6,6 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true }
 });
 
-// Prevent OverwriteModelError by reusing existing model if already compiled
 const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 export default User;

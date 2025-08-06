@@ -31,7 +31,7 @@ export default function Signup() {
             });
 
             alert(res.data.message || "Account created successfully!");
-            navigate("/login"); // ✅ Redirect to login after signup
+            navigate("/login"); 
         } catch (err) {
             alert(err.response?.data?.message || "Signup failed");
         }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5001/api/auth'; // backend URL
+const API_URL = 'http://localhost:5001/api/auth'; 
 
 export const registerUser = async (userData) => {
   const res = await axios.post(`${API_URL}/register`, userData);
@@ -9,7 +9,7 @@ export const registerUser = async (userData) => {
 
 export const loginUser = async (userData) => {
   const res = await axios.post(`${API_URL}/login`, userData);
-  // Save token to localStorage
+ 
   if (res.data.token) {
     localStorage.setItem('token', res.data.token);
   }

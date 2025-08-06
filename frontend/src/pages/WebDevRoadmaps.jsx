@@ -89,11 +89,11 @@ export default function WebDevRoadmaps() {
 
     return (
         <section ref={sectionRef} className="min-h-screen bg-[#0D1117] text-white px-6 md:px-12 py-20 relative">
-            {/* Glow Effects */}
+            
             <div className="absolute w-[350px] h-[350px] bg-blue-800 rounded-full blur-[160px] opacity-25 top-20 left-10"></div>
             <div className="absolute w-[300px] h-[300px] bg-purple-700 rounded-full blur-[150px] opacity-20 bottom-10 right-10"></div>
 
-            {/* Heading */}
+            
             <div className="text-center mb-16 relative z-10">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">🗺️ Web Dev Roadmaps</h1>
                 <p className="text-gray-300 text-lg max-w-2xl mx-auto">
@@ -101,7 +101,7 @@ export default function WebDevRoadmaps() {
                 </p>
             </div>
 
-            {/* Roadmap Cards */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto relative z-10">
                 {roadmaps.map((roadmap, index) => (
                     <div
@@ -109,7 +109,7 @@ export default function WebDevRoadmaps() {
                         ref={addCardRef}
                         className="bg-[#1E2736] p-5 rounded-2xl shadow-lg hover:scale-105 hover:shadow-blue-900 transition transform group"
                     >
-                        {/* Image with hover zoom */}
+                        
                         <div className="overflow-hidden rounded-lg mb-4">
                             <img 
                                 src={roadmap.img} 
@@ -121,7 +121,7 @@ export default function WebDevRoadmaps() {
                         <h3 className="text-2xl font-semibold mb-2">{roadmap.title}</h3>
                         <p className="text-gray-400 mb-4">{roadmap.desc}</p>
 
-                        {/* Explore Button */}
+                        
                         <a
                             href={roadmap.link}
                             target="_blank"

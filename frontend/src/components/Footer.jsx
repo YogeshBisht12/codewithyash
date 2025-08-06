@@ -6,7 +6,7 @@ export default function Footer() {
             <div className="w-full h-[2px] bg-blue-900 my-6" style={{ backgroundColor: '#1E3A8A' }}></div>
             <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
                 
-                {/* Logo & About */}
+                
                 <div>
                     <h2 className="text-2xl font-bold text-white mb-4">CodeWithYash</h2>
                     <p className="text-gray-400 text-sm">
@@ -14,7 +14,7 @@ export default function Footer() {
                     </p>
                 </div>
 
-                {/* Quick Links */}
+                
                 <div>
                     <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
                     <ul className="space-y-2">
@@ -25,7 +25,7 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                {/* Resources */}
+                
                 <div>
                     <h3 className="text-lg font-semibold text-white mb-4">Resources</h3>
                     <ul className="space-y-2">
@@ -36,7 +36,7 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                {/* Social Links */}
+                
                 <div>
                     <h3 className="text-lg font-semibold text-white mb-4">Follow Me</h3>
                     <div className="flex gap-4">
