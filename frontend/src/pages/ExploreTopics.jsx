@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authContext"; // ✅ Import Auth Context
+import { useAuth } from "../context/authContext";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaCode, FaLaptopCode, FaSitemap, FaFilePdf } from "react-icons/fa"; // ✅ Import icons
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,17 +11,37 @@ export default function ExploreTopics() {
     const sectionRef = useRef(null);
     const cardsRef = useRef([]);
     const buttonsRef = useRef([]);
-    const { isAuthenticated } = useAuth(); // ✅ Auth state
+    const { isAuthenticated } = useAuth();
     const navigate = useNavigate();
 
     cardsRef.current = [];
     buttonsRef.current = [];
 
     const topics = [
-        { title: "DSA Problems", desc: "Solve pattern-based DSA questions to crack FAANG.", icon: "📚", external: "https://github.com/YogeshBisht12/Pattern-based-Dsa-Questions" },
-        { title: "Web Development", desc: "Learn modern frontend & backend development.", icon: "💻", path: "/explore/webdev" },
-        { title: "System Design", desc: "Master scalable system architecture & design.", icon: "🛠", path: "/explore/system-design" },
-        { title: "Coding Resources", desc: "PDFs, cheat sheets & curated study materials.", icon: "📑", path: "/resources" },
+        { 
+            title: "DSA Problems", 
+            desc: "Solve pattern-based DSA questions to crack FAANG.", 
+            icon: <FaCode className="text-5xl text-green-400" />, 
+            external: "https://github.com/YogeshBisht12/Pattern-based-Dsa-Questions" 
+        },
+        { 
+            title: "Web Development", 
+            desc: "Learn modern frontend & backend development.", 
+            icon: <FaLaptopCode className="text-5xl text-blue-400" />, 
+            path: "/explore/webdev" 
+        },
+        { 
+            title: "System Design", 
+            desc: "Master scalable system architecture & design.", 
+            icon: <FaSitemap className="text-5xl text-purple-400" />, 
+            path: "/explore/system-design" 
+        },
+        { 
+            title: "Coding Resources", 
+            desc: "PDFs, cheat sheets & curated study materials.", 
+            icon: <FaFilePdf className="text-5xl text-red-400" />, 
+            path: "/resources" 
+        },
     ];
 
     const addCardRef = (el) => el && !cardsRef.current.includes(el) && cardsRef.current.push(el);
@@ -71,7 +92,7 @@ export default function ExploreTopics() {
                             ref={addCardRef}
                             className="bg-[#1E2736] shadow-lg rounded-xl p-6 flex flex-col items-center text-center hover:scale-105 hover:shadow-blue-900 transition"
                         >
-                            <span className="text-5xl mb-4">{topic.icon}</span>
+                            <span className="mb-4">{topic.icon}</span>
                             <h3 className="text-xl font-semibold text-white">{topic.title}</h3>
                             <p className="text-gray-400 mt-2 text-sm">{topic.desc}</p>
 

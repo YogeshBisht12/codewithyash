@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import ProtectedRoute from "./components/ProtectedRoute"; 
+import HighlightBanner from "./components/HighlightBanner"; // ✅ Import Highlight Banner
 
 import Home from "./pages/Home";
 import Resources from "./pages/Resources";
@@ -49,17 +50,16 @@ export default function App() {
     <>
       <ScrollToTop />
       <div className="page-content flex flex-col min-h-screen opacity-0">
+        <HighlightBanner /> {/* ✅ Running text added above Navbar */}
         <Navbar />
         <main className="flex-grow">
           <Routes>
-
             <Route path="/" element={<Home />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/logout" element={<Logout />} />
-
 
             <Route
               path="/explore/*"

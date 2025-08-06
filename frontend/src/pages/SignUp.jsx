@@ -1,7 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Signup() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -16,7 +18,6 @@ export default function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validate password match
         if (formData.password !== formData.confirmPassword) {
             alert("Passwords do not match!");
             return;
@@ -30,6 +31,7 @@ export default function Signup() {
             });
 
             alert(res.data.message || "Account created successfully!");
+            navigate("/login"); // ✅ Redirect to login after signup
         } catch (err) {
             alert(err.response?.data?.message || "Signup failed");
         }
@@ -43,45 +45,18 @@ export default function Signup() {
                     Join <span className="text-blue-400">CodeWithYash</span> and start your coding journey today!
                 </p>
 
-                {/* Signup Form */}
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Full Name"
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-[#0D1117] border border-gray-600 text-white focus:outline-none focus:border-blue-500 transition"
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-[#0D1117] border border-gray-600 text-white focus:outline-none focus:border-blue-500 transition"
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-[#0D1117] border border-gray-600 text-white focus:outline-none focus:border-blue-500 transition"
-                    />
-                    <input
-                        type="password"
-                        name="confirmPassword"
-                        placeholder="Confirm Password"
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-[#0D1117] border border-gray-600 text-white focus:outline-none focus:border-blue-500 transition"
-                    />
+                    <input type="text" name="name" placeholder="Full Name" onChange={handleChange} required
+                        className="w-full px-4 py-3 rounded-lg bg-[#0D1117] border border-gray-600 text-white focus:outline-none focus:border-blue-500 transition" />
+                    <input type="email" name="email" placeholder="Email" onChange={handleChange} required
+                        className="w-full px-4 py-3 rounded-lg bg-[#0D1117] border border-gray-600 text-white focus:outline-none focus:border-blue-500 transition" />
+                    <input type="password" name="password" placeholder="Password" onChange={handleChange} required
+                        className="w-full px-4 py-3 rounded-lg bg-[#0D1117] border border-gray-600 text-white focus:outline-none focus:border-blue-500 transition" />
+                    <input type="password" name="confirmPassword" placeholder="Confirm Password" onChange={handleChange} required
+                        className="w-full px-4 py-3 rounded-lg bg-[#0D1117] border border-gray-600 text-white focus:outline-none focus:border-blue-500 transition" />
 
-                    <button
-                        type="submit"
-                        className="w-full bg-blue-600 hover:bg-blue-700 transition text-white py-3 rounded-lg font-semibold mt-2"
-                    >
+                    <button type="submit"
+                        className="w-full bg-blue-600 hover:bg-blue-700 transition text-white py-3 rounded-lg font-semibold mt-2">
                         Create Account
                     </button>
                 </form>
@@ -89,9 +64,9 @@ export default function Signup() {
                 <div className="flex justify-center text-gray-400 text-sm mt-4">
                     <p>
                         Already have an account?{" "}
-                        <a href="/login" className="text-blue-400 hover:underline">
+                        <Link to="/login" className="text-blue-400 hover:underline">
                             Login here
-                        </a>
+                        </Link>
                     </p>
                 </div>
             </div>

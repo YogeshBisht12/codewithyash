@@ -42,7 +42,7 @@ export default function InstagramFeed() {
             </div>
 
             <a
-                href="https://www.instagram.com/codewithyash3/"
+                href="https://www.instagram.com/reel/DMpEVHMTLOB/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-block px-6 py-3 text-lg bg-blue-900 font-semibold text-white rounded-lg hover:opacity-90 transition"
