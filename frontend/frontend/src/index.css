@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes colorPulse {
+    0%, 100% {
+    color: #ffffff; /* White */
+    }
+    50% {
+    color: #1e3a8a; /* Red */
+    }
+}
+
+@keyframes colorFade {
+    0%, 100% {
+    color: white;
+    }
+    50% {
+    color: #2563eb; /* blue-600 */
+    }
+}
+
+.animate-colorFade {
+  animation: colorFade 2s ease-in-out infinite;
+}
+
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+body {
+  background-color: #0D1117;
+  margin: 0;
+  padding: 0;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.animate-float { animation: float 3s ease-in-out infinite; }
+html {
+  scroll-behavior: smooth;
+}
+html {
+  scroll-behavior: smooth;
+}
