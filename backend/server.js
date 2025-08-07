@@ -10,9 +10,8 @@ connectDB();
 const app = express();
 
 const allowedOrigins = [
-  'http://localhost:5173',                   // Local dev frontend
-  'https://yogeshbisht12.github.io',         // GitHub Pages frontend
-  'https://www.codewithyash.me'              // Your Namecheap domain
+  'http://localhost:5173',
+  'https://www.codewithyash.me',
 ];
 
 app.use(cors({
