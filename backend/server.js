@@ -13,8 +13,6 @@ const allowedOrigins = [
   'http://localhost:5173',
   'https://www.codewithyash.me',
 ];
-
-a
 app.use(cors({
   origin: ['http://localhost:5173', 'https://codewithyash.me'],
   credentials: true,
