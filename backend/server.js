@@ -8,10 +8,10 @@ dotenv.config();
 connectDB();
 
 const app = express();
-
 const allowedOrigins = [
   'http://localhost:5173',
   'https://www.codewithyash.me',
+  'https://codewithyash.me', // ✅ Add this one too
 ];
 app.use(cors({
   origin: ['http://localhost:5173', 'https://codewithyash.me'],
