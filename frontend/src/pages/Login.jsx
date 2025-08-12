@@ -59,6 +59,17 @@ export default function Login() {
             Login
           </button>
         </form>
+
+        {/* Sign-up Link */}
+        <p className="mt-6 text-gray-400 text-sm">
+          Don’t have an account?{" "}
+          <button
+            onClick={() => navigate("/signup")}
+            className="text-blue-400 hover:underline"
+          >
+            Sign up
+          </button>
+        </p>
       </div>
     </section>
   );
