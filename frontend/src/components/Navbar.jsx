@@ -6,11 +6,11 @@ import gsap from "gsap";
 
 export default function Navbar() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const dropdownRef = useRef(null);
     const { isAuthenticated, logout } = useAuth();
-    const location = useLocation(); 
+    const location = useLocation();
 
-    
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -21,7 +21,6 @@ export default function Navbar() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    
     useEffect(() => {
         if (isDropdownOpen && dropdownRef.current) {
             gsap.fromTo(
@@ -32,109 +31,152 @@ export default function Navbar() {
         }
     }, [isDropdownOpen]);
 
-    
     const NavLink = ({ to, label }) => {
         const isActive = location.pathname === to;
         return (
             <Link
                 to={to}
-                className={`relative group transition-colors duration-300 ${
-                    isActive ? "text-blue-500" : "text-white hover:text-blue-400"
-                }`}
+                className={`relative group transition-colors duration-300 ${isActive ? "text-blue-500" : "text-white hover:text-blue-400"
+                    }`}
+                onClick={() => setIsMobileMenuOpen(false)}
             >
                 {label}
                 <span
-                    className={`absolute bottom-0 left-0 h-[2px] bg-blue-500 rounded-full transition-all duration-500 ease-out ${
-                        isActive ? "w-full shadow-[0_0_8px_#3b82f6]" : "w-0 group-hover:w-full group-hover:shadow-[0_0_8px_#3b82f6]"
-                    }`}
+                    className={`absolute bottom-0 left-0 h-[2px] bg-blue-500 rounded-full transition-all duration-500 ease-out ${isActive
+                            ? "w-full shadow-[0_0_8px_#3b82f6]"
+                            : "w-0 group-hover:w-full group-hover:shadow-[0_0_8px_#3b82f6]"
+                        }`}
                 ></span>
             </Link>
         );
     };
 
     return (
-        <nav className="flex items-center justify-between px-6 sm:px-8 py-4 bg-[#0D1117] sticky top-0 z-50 shadow-[0_0_20px_rgba(30,58,138,0.8)]">
-            <Logo />
+        <nav className="bg-[#0D1117] sticky top-0 z-50 shadow-[0_0_20px_rgba(30,58,138,0.8)]">
+            <div className="flex items-center justify-between px-6 sm:px-8 py-4">
+                <Logo />
 
-            
-            <ul className="hidden md:flex gap-8 font-medium text-lg items-center">
-                <li><NavLink to="/" label="Home" /></li>
-
-                
-                <li className="relative" ref={dropdownRef}>
-                    <button
-                        onClick={() => setIsDropdownOpen((prev) => !prev)}
-                        className="relative group transition-colors duration-300 flex items-center gap-1 text-white hover:text-blue-400"
+                {/* Mobile Hamburger */}
+                <button
+                    className="md:hidden text-white focus:outline-none"
+                    onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+                >
+                    <svg
+                        className="w-7 h-7"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                     >
-                        Explore
-                        <span className="absolute bottom-0 left-0 h-[2px] bg-blue-500 rounded-full transition-all duration-500 ease-out w-0 group-hover:w-full group-hover:shadow-[0_0_8px_#3b82f6]"></span>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 22 22"
-                            className={`w-5 h-5 transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : "rotate-0"}`}
-                        >
+                        {isMobileMenuOpen ? (
                             <path
-                                d="M11 14.667a.92.92 0 0 1-.587-.21l-5.5-4.584A.918.918 0 1 1 6.086 8.46l4.913 4.107 4.914-3.96a.917.917 0 0 1 1.292.137.917.917 0 0 1-.128 1.339l-5.5 4.427a.92.92 0 0 1-.578.156"
-                                fill="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M6 18L18 6M6 6l12 12"
                             />
-                        </svg>
-                    </button>
+                        ) : (
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M4 6h16M4 12h16M4 18h16"
+                            />
+                        )}
+                    </svg>
+                </button>
 
-                    {isDropdownOpen && (
-                        <ul className="absolute top-10 left-0 w-56 bg-[#1E2736]/80 backdrop-blur-md border border-blue-800 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.4)] overflow-hidden">
-                            {[
-                                { text: "🟢 DSA Problems", path: "/explore/dsa" },
-                                { text: "🎨 Web Development", path: "/explore/webdev" },
-                                { text: "🛠 System Design", path: "/explore/system-design" },
-                            ].map((item, index) => (
-                                <li key={index} className="group">
-                                    <Link
-                                        to={item.path}
-                                        className="block px-5 py-3 text-white hover:bg-blue-600/70 transition-all duration-300"
-                                        onClick={() => setIsDropdownOpen(false)}
-                                    >
-                                        {item.text}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
-                </li>
+                {/* Desktop Menu */}
+                <ul className="hidden md:flex gap-8 font-medium text-lg items-center">
+                    <li><NavLink to="/" label="Home" /></li>
+                    <li className="relative" ref={dropdownRef}>
+                        <button
+                            onClick={() => setIsDropdownOpen((prev) => !prev)}
+                            className="relative group flex items-center gap-1 text-white hover:text-blue-400"
+                        >
+                            Explore
+                            <span className="absolute bottom-0 left-0 h-[2px] bg-blue-500 rounded-full w-0 group-hover:w-full group-hover:shadow-[0_0_8px_#3b82f6] transition-all duration-500 ease-out"></span>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 22 22"
+                                className={`w-5 h-5 transition-transform ${isDropdownOpen ? "rotate-180" : "rotate-0"
+                                    }`}
+                            >
+                                <path
+                                    d="M11 14.667a.92.92 0 0 1-.587-.21l-5.5-4.584A.918.918 0 1 1 6.086 8.46l4.913 4.107 4.914-3.96a.917.917 0 0 1 1.292.137.917.917 0 0 1-.128 1.339l-5.5 4.427a.92.92 0 0 1-.578.156"
+                                    fill="currentColor"
+                                />
+                            </svg>
+                        </button>
+                        {isDropdownOpen && (
+                            <ul className="absolute top-10 left-0 w-56 bg-[#1E2736]/80 backdrop-blur-md border border-blue-800 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.4)] overflow-hidden">
+                                {[
+                                    { text: "🟢 DSA Problems", path: "/explore/dsa" },
+                                    { text: "🎨 Web Development", path: "/explore/webdev" },
+                                    { text: "🛠 System Design", path: "/explore/system-design" },
+                                ].map((item, index) => (
+                                    <li key={index} className="group">
+                                        <Link
+                                            to={item.path}
+                                            className="block px-5 py-3 text-white hover:bg-blue-600/70"
+                                            onClick={() => setIsDropdownOpen(false)}
+                                        >
+                                            {item.text}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </li>
+                    <li><NavLink to="/resources" label="Resources" /></li>
+                    <li><NavLink to="/contact" label="Contact" /></li>
+                </ul>
 
-                <li><NavLink to="/resources" label="Resources" /></li>
-                <li><NavLink to="/contact" label="Contact" /></li>
-            </ul>
-
-            {/* ✅ Login/Signup or Logout */}
-            <div className="hidden md:flex gap-3">
-                {isAuthenticated ? (
-                    <button
-                        onClick={logout}
-                        className="relative px-4 py-2 font-medium rounded-lg text-red-400 border border-red-600 w-[100px] overflow-hidden hover:shadow-[0_0_15px_#ef4444] transition duration-500 group"
-                    >
-                        <span className="relative z-20 transition-colors duration-700 group-hover:text-white">
+                {/* Desktop Auth Buttons */}
+                <div className="hidden md:flex gap-3">
+                    {isAuthenticated ? (
+                        <button
+                            onClick={logout}
+                            className="px-4 py-2 rounded-lg text-red-400 border border-red-600 hover:shadow-[0_0_15px_#ef4444]"
+                        >
                             Logout
-                        </span>
-                        <span className="absolute inset-0 bg-red-600 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-[800ms] ease-in-out z-10"></span>
-                        <span className="absolute inset-0 bg-red-700 transform skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-[800ms] ease-in-out z-10"></span>
-                    </button>
-                ) : (
-                    <>
-                        {["Login", "Signup"].map((label, index) => (
-                            <Link key={index} to={label === "Login" ? "/login" : "/signup"} className="relative group w-fit">
-                                <button className="relative px-4 py-2 font-medium rounded-lg text-blue-400 border border-blue-600 w-[100px] overflow-hidden hover:shadow-[0_0_15px_#3b82f6] transition duration-500">
-                                    <span className="relative z-20 transition-colors duration-700 group-hover:text-white">
-                                        {label}
-                                    </span>
-                                    <span className="absolute inset-0 bg-blue-600 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-[800ms] ease-in-out z-10"></span>
-                                    <span className="absolute inset-0 bg-blue-700 transform skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-[800ms] ease-in-out z-10"></span>
-                                </button>
+                        </button>
+                    ) : (
+                        <>
+                            <Link to="/login" className="px-4 py-2 rounded-lg text-blue-400 border border-blue-600 hover:shadow-[0_0_15px_#3b82f6]">
+                                Login
                             </Link>
-                        ))}
-                    </>
-                )}
+                            <Link to="/signup" className="px-4 py-2 rounded-lg text-blue-400 border border-blue-600 hover:shadow-[0_0_15px_#3b82f6]">
+                                Signup
+                            </Link>
+                        </>
+                    )}
+                </div>
             </div>
+
+            {/* Mobile Menu */}
+            {isMobileMenuOpen && (
+                <div className="md:hidden flex flex-col gap-4 px-6 py-4 bg-[#0D1117] border-t border-gray-700">
+                    <NavLink to="/" label="Home" />
+                    <NavLink to="/resources" label="Resources" />
+                    <NavLink to="/contact" label="Contact" />
+                    {isAuthenticated ? (
+                        <button
+                            onClick={() => {
+                                logout();
+                                setIsMobileMenuOpen(false);
+                            }}
+                            className="px-4 py-2 rounded-lg text-red-400 border border-red-600 hover:shadow-[0_0_15px_#ef4444]"
+                        >
+                            Logout
+                        </button>
+                    ) : (
+                        <>
+                            <NavLink to="/login" label="Login" />
+                            <NavLink to="/signup" label="Signup" />
+                        </>
+                    )}
+                </div>
+            )}
         </nav>
     );
 }
