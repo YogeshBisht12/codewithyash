@@ -24,17 +24,17 @@ export default function Signup() {
         formData
       );
 
-      alert("Signup successful!");
-      navigate("/login"); // ✅ Redirect to login after signup
+      alert("Login successful!");
+      navigate("/"); 
     } catch (err) {
-      alert(err.response?.data?.message || "Signup failed");
+      alert(err.response?.data?.message || "Login failed");
     }
   };
 
   return (
     <section className="relative bg-[#0D1117] min-h-screen text-white flex flex-col items-center justify-center overflow-hidden">
       <div className="bg-[#1E2736] shadow-lg rounded-xl p-8 w-full max-w-md text-center z-10">
-        <h1 className="text-4xl font-bold mb-6">📝 Signup</h1>
+        <h1 className="text-4xl font-bold mb-6">📝 Login</h1>
         <p className="text-gray-400 mb-6 text-sm">
           Join the coding revolution. Create your free account!
         </p>
@@ -71,15 +71,6 @@ export default function Signup() {
             Signup
           </button>
         </form>
-
-        <div className="flex justify-center text-gray-400 text-sm mt-4">
-          <p>
-            Already have an account?{" "}
-            <Link to="/login" className="text-blue-400 hover:underline">
-              Login here
-            </Link>
-          </p>
-        </div>
       </div>
     </section>
   );
