@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../context/authContext";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ export default function Signup() {
   });
 
   const navigate = useNavigate();
+  const { login } = useAuth(); // ✅ get login function from context
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,6 +26,8 @@ export default function Signup() {
         formData
       );
 
+      // ✅ Assuming your backend returns the token as res.data.token
+      login(res.data.token); 
       alert("Login successful!");
       navigate("/"); 
     } catch (err) {
