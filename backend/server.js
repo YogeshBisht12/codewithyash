@@ -14,11 +14,16 @@ const allowedOrigins = [
   'https://codewithyash.me', // ✅ Add this one too
 ];
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://codewithyash.me'],
+  origin: [
+    'http://localhost:5173',
+    'https://codewithyash.me',
+    'https://www.codewithyash.me'
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
