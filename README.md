@@ -1,4 +1,4 @@
-# 🚀 CodeWithYash
+🚀 CodeWithYash
 
 Welcome to **CodeWithYash**, a platform dedicated to helping developers learn, practice, and master coding skills!  
 This website is currently in the **building phase** and will soon provide resources on:
@@ -11,18 +11,8 @@ This website is currently in the **building phase** and will soon provide resour
 ---
 
 ## 🏗️ **Status**
-🚧 **This website is under development.**  
+🚧 The website is live at (https://www.codewithyash.me/)
 New features and pages are actively being built, so stay tuned for exciting updates!
-
----
-
-## 🔗 **Planned Features**
-✅ Hero section with coding resources  
-✅ Navbar with dropdown navigation  
-✅ Dedicated sections for DSA, Web Development & Resources  
-✅ Community and Contact pages  
-⬜ Interactive coding challenges (coming soon)  
-⬜ Blog section for tips & tutorials (coming soon)  
 
 ---
 
@@ -42,7 +32,7 @@ Once the initial version is live, we’ll welcome contributions!
 
 ## 📢 **Stay Updated**
 Follow my journey:  
-- 🌐 Website (Coming Soon)  
+- 🌐 Website ( https://www.codewithyash.me/)  
 - 📸 [Instagram: @codewithyash3](https://www.instagram.com/codewithyash3/)  
 
 ---
