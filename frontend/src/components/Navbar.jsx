@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { useAuth } from "../context/authContext";
 import Logo from "./Logo";
 import gsap from "gsap";
 
@@ -8,7 +7,6 @@ export default function Navbar() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const dropdownRef = useRef(null);
-    const { isAuthenticated, logout } = useAuth();
     const location = useLocation();
 
     useEffect(() => {
@@ -130,27 +128,6 @@ export default function Navbar() {
                     <li><NavLink to="/resources" label="Resources" /></li>
                     <li><NavLink to="/contact" label="Contact" /></li>
                 </ul>
-
-                {/* Desktop Auth Buttons */}
-                <div className="hidden md:flex gap-3">
-                    {isAuthenticated ? (
-                        <button
-                            onClick={logout}
-                            className="px-4 py-2 rounded-lg text-red-400 border border-red-600 hover:shadow-[0_0_15px_#ef4444]"
-                        >
-                            Logout
-                        </button>
-                    ) : (
-                        <>
-                            <Link to="/login" className="px-4 py-2 rounded-lg text-blue-400 border border-blue-600 hover:shadow-[0_0_15px_#3b82f6]">
-                                Login
-                            </Link>
-                            <Link to="/signup" className="px-4 py-2 rounded-lg text-blue-400 border border-blue-600 hover:shadow-[0_0_15px_#3b82f6]">
-                                Signup
-                            </Link>
-                        </>
-                    )}
-                </div>
             </div>
 
             {/* Mobile Menu */}
@@ -159,22 +136,6 @@ export default function Navbar() {
                     <NavLink to="/" label="Home" />
                     <NavLink to="/resources" label="Resources" />
                     <NavLink to="/contact" label="Contact" />
-                    {isAuthenticated ? (
-                        <button
-                            onClick={() => {
-                                logout();
-                                setIsMobileMenuOpen(false);
-                            }}
-                            className="px-4 py-2 rounded-lg text-red-400 border border-red-600 hover:shadow-[0_0_15px_#ef4444]"
-                        >
-                            Logout
-                        </button>
-                    ) : (
-                        <>
-                            <NavLink to="/login" label="Login" />
-                            <NavLink to="/signup" label="Signup" />
-                        </>
-                    )}
                 </div>
             )}
         </nav>

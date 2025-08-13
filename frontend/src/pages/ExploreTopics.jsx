@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authContext";
+import { useNavigate, Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaCode, FaLaptopCode, FaSitemap, FaFilePdf } from "react-icons/fa"; 
@@ -11,7 +10,6 @@ export default function ExploreTopics() {
     const sectionRef = useRef(null);
     const cardsRef = useRef([]);
     const buttonsRef = useRef([]);
-    const { isAuthenticated } = useAuth();
     const navigate = useNavigate();
 
     cardsRef.current = [];
@@ -96,31 +94,15 @@ export default function ExploreTopics() {
                             <h3 className="text-xl font-semibold text-white">{topic.title}</h3>
                             <p className="text-gray-400 mt-2 text-sm">{topic.desc}</p>
 
-                            {topic.external ? (
-                                <a href={topic.external} target="_blank" rel="noopener noreferrer" ref={addButtonRef} className="relative group w-fit mt-4">
-                                    <button className="relative px-4 py-2 font-medium rounded-lg text-blue-600 border border-blue-600 w-[160px] overflow-hidden">
-                                        <span className="relative z-20 group-hover:text-white">Explore →</span>
-                                        <span className="absolute inset-0 bg-blue-600 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-[900ms] z-10"></span>
-                                        <span className="absolute inset-0 bg-blue-600 transform skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-[900ms] z-10"></span>
-                                    </button>
-                                </a>
-                            ) : (
-                                <button
-                                    ref={addButtonRef}
-                                    onClick={() => {
-                                        if (!isAuthenticated) {
-                                            navigate("/login");
-                                        } else {
-                                            navigate(topic.path);
-                                        }
-                                    }}
-                                    className="relative px-4 py-2 font-medium rounded-lg text-blue-600 border border-blue-600 w-[160px] overflow-hidden mt-4"
-                                >
-                                    <span className="relative z-20 group-hover:text-white">Explore →</span>
-                                    <span className="absolute inset-0 bg-blue-600 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-[900ms] z-10"></span>
-                                    <span className="absolute inset-0 bg-blue-600 transform skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-[900ms] z-10"></span>
-                                </button>
-                            )}
+                            <button
+                                ref={addButtonRef}
+                                onClick={() => navigate(topic.path)}
+                                className="relative px-4 py-2 font-medium rounded-lg text-blue-600 border border-blue-600 w-[160px] overflow-hidden mt-4"
+                            >
+                                <span className="relative z-20 group-hover:text-white">Explore →</span>
+                                <span className="absolute inset-0 bg-blue-600 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-[900ms] z-10"></span>
+                                <span className="absolute inset-0 bg-blue-600 transform skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-[900ms] z-10"></span>
+                            </button>
                         </div>
                     ))}
                 </div>

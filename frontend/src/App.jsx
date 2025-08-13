@@ -6,14 +6,11 @@ import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import ProtectedRoute from "./components/ProtectedRoute"; 
 import HighlightBanner from "./components/HighlightBanner"; 
 
 import Home from "./pages/Home";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
-import Login from "./pages/Login";
-import Signup from "./pages/SignUp";
 import DSA from "./pages/Explore/DSA";
 import WebDev from "./pages/Explore/WebDev";
 import SystemDesign from "./pages/Explore/SystemDesign";
@@ -29,7 +26,6 @@ import FullstackProjects from "./pages/FullstackProjects";
 import WebDevRoadmaps from "./pages/WebDevRoadmaps";
 import APIsIntegration from "./pages/APIsIntegration";
 import DeploymentHosting from "./pages/DeploymentHosting";
-import Logout from "./pages/Logout";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -57,14 +53,10 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/logout" element={<Logout />} />
 
             <Route
               path="/explore/*"
               element={
-                <ProtectedRoute>
                   <Routes>
                     <Route path="dsa" element={<DSA />} />
                     <Route path="webdev" element={<WebDev />} />
@@ -82,7 +74,6 @@ export default function App() {
                     <Route path="webdev/apis" element={<APIsIntegration />} />
                     <Route path="webdev/deployment" element={<DeploymentHosting />} />
                   </Routes>
-                </ProtectedRoute>
               }
             />
           </Routes>

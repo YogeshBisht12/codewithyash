@@ -1,6 +1,4 @@
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authContext";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaGithub, FaFilePdf, FaBrain, FaCode } from "react-icons/fa"; 
@@ -12,8 +10,6 @@ export default function Resources() {
     const sectionRef = useRef(null);
     const cardsRef = useRef([]);
     const buttonsRef = useRef([]);
-    const { isAuthenticated } = useAuth();
-    const navigate = useNavigate();
 
     cardsRef.current = [];
     buttonsRef.current = [];
@@ -31,14 +27,15 @@ export default function Resources() {
             desc: "Frontend + Backend roadmap for 2025.",
             type: "pdf",
             icon: <RiRoadMapFill className="text-5xl text-yellow-400" />,
-            link: "/assets/downloads/web-roadmap.pdf",
+            link: "https://roadmap.sh/",
         },
         {
             title: "Cheat Sheets Js",
             desc: "Handy coding and CS fundamentals cheat sheets.",
             type: "github",
             icon: <FaBrain className="text-5xl text-purple-400" />,
-            link: "https://www.codewithharry.com/blogpost/javascript-cheatsheet" },
+            link: "https://www.codewithharry.com/blogpost/javascript-cheatsheet",
+        },
     ];
 
     const addCardRef = (el) => {
@@ -47,15 +44,6 @@ export default function Resources() {
 
     const addButtonRef = (el) => {
         if (el && !buttonsRef.current.includes(el)) buttonsRef.current.push(el);
-    };
-
-    const handleProtectedDownload = (e, link) => {
-        e.preventDefault();
-        if (!isAuthenticated) {
-            navigate("/login");
-        } else {
-            window.location.href = link;
-        }
     };
 
     useEffect(() => {
@@ -152,17 +140,21 @@ export default function Resources() {
                                     </button>
                                 </a>
                             ) : (
-                                <button
-                                    onClick={(e) => handleProtectedDownload(e, res.link)}
+                                <a
+                                    href={res.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     ref={addButtonRef}
-                                    className="relative group w-fit mt-auto z-10 px-4 py-2 font-medium rounded-lg text-blue-600 border border-blue-600 w-[180px] overflow-hidden"
+                                    className="relative group w-fit mt-auto z-10"
                                 >
-                                    <span className="relative z-20 transition-colors duration-700 group-hover:text-white">
-                                        📥 Download PDF
-                                    </span>
-                                    <span className="absolute inset-0 bg-blue-600 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-[900ms] ease-in-out z-10"></span>
-                                    <span className="absolute inset-0 bg-blue-600 transform skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-[900ms] ease-in-out z-10"></span>
-                                </button>
+                                    <button className="relative px-4 py-2 font-medium rounded-lg text-blue-600 border border-blue-600 overflow-hidden">
+                                        <span className="relative z-20 transition-colors duration-700 group-hover:text-white">
+                                            📥 Download PDF
+                                        </span>
+                                        <span className="absolute inset-0 bg-blue-600 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-[900ms] ease-in-out z-10"></span>
+                                        <span className="absolute inset-0 bg-blue-600 transform skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-[900ms] ease-in-out z-10"></span>
+                                    </button>
+                                </a>
                             )}
                         </div>
                     ))}
