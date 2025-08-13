@@ -34,18 +34,11 @@ export default function Resources() {
             link: "/assets/downloads/web-roadmap.pdf",
         },
         {
-            title: "System Design Notes",
-            desc: "Beginner to advanced system design notes.",
-            type: "pdf",
+            title: "Cheat Sheets Js",
+            desc: "Handy coding and CS fundamentals cheat sheets.",
+            type: "github",
             icon: <FaBrain className="text-5xl text-purple-400" />,
             link: "https://www.codewithharry.com/blogpost/javascript-cheatsheet" },
-        {
-            title: "Cheat Sheets Pack",
-            desc: "Handy coding and CS fundamentals cheat sheets.",
-            type: "pdf",
-            icon: <FaFilePdf className="text-5xl text-red-400" />,
-            link: "/assets/downloads/cheatsheet.pdf",
-        },
     ];
 
     const addCardRef = (el) => {
