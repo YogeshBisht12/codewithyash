@@ -1,40 +1,37 @@
 🚀 CodeWithYash
 
-Welcome to **CodeWithYash**, a platform dedicated to helping developers learn, practice, and master coding skills!  
-This website is currently in the **building phase** and will soon provide resources on:
+👋 Welcome
+CodeWithYash is a platform dedicated to helping developers learn, practice, and master coding skills.
+Here you’ll find resources and guidance on:
 
-- 💻 **DSA (Data Structures & Algorithms)**
-- 🌐 **Web Development**
-- 🛠 **System Design**
-- 📚 Coding Tips & Resources
+💻 DSA (Data Structures & Algorithms)
 
----
+🌐 Web Development
 
-## 🏗️ **Status**
-🚧 The website is live at (https://www.codewithyash.me/)
-New features and pages are actively being built, so stay tuned for exciting updates!
+🛠 System Design
 
----
+📚 Coding Tips & Resources
 
-## 🛠️ **Tech Stack**
-- **Frontend:** React.js, Tailwind CSS  
-- **Routing:** React Router  
-- **Build Tool:** Vite  
-- **Version Control:** Git & GitHub  
+🏗️ Current Status
+🚧 The website is live: codewithyash.me
+✨ New features and pages are actively being added — stay tuned for updates!
 
----
+🛠 Tech Stack
+Frontend: React.js, Tailwind CSS
 
-## 🌟 **Contributions**
-Currently, contributions are **not open** while the core structure is being built.  
-Once the initial version is live, we’ll welcome contributions!
+Routing: React Router
 
----
+Build Tool: Vite
 
-## 📢 **Stay Updated**
-Follow my journey:  
-- 🌐 Website ( https://www.codewithyash.me/)  
-- 📸 [Instagram: @codewithyash3](https://www.instagram.com/codewithyash3/)  
+Version Control: Git & GitHub
 
----
+🌟 Contributions
+Currently, contributions are closed while the core structure is being finalized.
+Once the main roadmap is complete, community contributions will be welcome.
 
-### ✨ **Made with ❤️ by Yash Bisht**
+📢 Stay Updated
+🌐 Website: codewithyash.me
+
+📸 Instagram: @codewithyash3
+
+✨ Made with ❤️ by Yash Bisht
