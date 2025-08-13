@@ -44,12 +44,12 @@ export default function Hero() {
 
     return (
         <section className="relative bg-[#0D1117] w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
-            
+
             <div className="absolute w-[400px] h-[400px] bg-blue-900 rounded-full blur-[180px] opacity-20 top-24 left-[-150px] animate-pulse"></div>
             <div className="absolute w-[300px] h-[300px] bg-purple-800 rounded-full blur-[150px] opacity-15 bottom-16 right-[-120px] animate-pulse"></div>
             <div className="absolute w-[250px] h-[250px] bg-pink-700 rounded-full blur-[140px] opacity-10 top-[70%] left-[45%] animate-pulse"></div>
 
-            
+
             <h1
                 ref={headingRef}
                 className="text-center w-full text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white leading-snug px-2 mt-8"
@@ -61,10 +61,13 @@ export default function Hero() {
                 <span className="animate-colorChange">Conquer</span>
             </h1>
 
-            
+
             <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-8 sm:gap-10 mt-16 sm:mt-24 md:mt-28">
-                
-                <div ref={leftTextRef} className="w-full md:w-1/2 text-white text-center md:text-left px-2">
+
+                <div
+                    ref={leftTextRef}
+                    className="w-full md:w-1/2 text-white text-center md:text-left px-2"
+                >
                     <p className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5">
                         🚀 Explore <span className="text-blue-400">DSA problems</span>
                     </p>
@@ -73,8 +76,8 @@ export default function Hero() {
                         all in one place!
                     </p>
 
-                    
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+                    {/* Buttons — center on small, left on medium+ */}
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start items-center">
                         {["Start Exploring", "Join Community"].map((label, index) => (
                             <div
                                 key={index}
@@ -94,7 +97,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                
+
                 <div ref={instaRef} className="w-full md:w-1/2 flex justify-center px-2">
                     <InstagramFeed />
                 </div>

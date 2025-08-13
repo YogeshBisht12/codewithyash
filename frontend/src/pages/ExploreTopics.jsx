@@ -22,7 +22,7 @@ export default function ExploreTopics() {
             title: "DSA Problems", 
             desc: "Solve pattern-based DSA questions to crack FAANG.", 
             icon: <FaCode className="text-5xl text-green-400" />, 
-            external: "https://github.com/YogeshBisht12/Pattern-based-Dsa-Questions" 
+            path: "/explore/dsa" 
         },
         { 
             title: "Web Development", 
