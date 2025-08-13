@@ -1,45 +1,50 @@
 🚀 CodeWithYash
-Welcome to CodeWithYash – your go-to platform for learning, practicing, and mastering coding skills!
-The website is now LIVE at codewithyash.me 🎉
 
-Here, you’ll find resources and guidance on:
+Welcome to **CodeWithYash**, a platform dedicated to helping developers learn, practice, and master coding skills!  
+This website is currently in the **building phase** and will soon provide resources on:
 
-💻 DSA (Data Structures & Algorithms)
+- 💻 **DSA (Data Structures & Algorithms)**
+- 🌐 **Web Development**
+- 🛠 **System Design**
+- 📚 Coding Tips & Resources
 
-🌐 Web Development
+---
 
-🛠 System Design
+## 🏗️ **Status**
+🚧 **This website is under development.**  
+New features and pages are actively being built, so stay tuned for exciting updates!
 
-📚 Coding Tips & Resources
+---
 
-✅ Current Status
-The first version of the website is live and ready to explore!
-I’ll be continuously adding new sections, improving the UI, and bringing in interactive features.
+## 🔗 **Planned Features**
+✅ Hero section with coding resources  
+✅ Navbar with dropdown navigation  
+✅ Dedicated sections for DSA, Web Development & Resources  
+✅ Community and Contact pages  
+⬜ Interactive coding challenges (coming soon)  
+⬜ Blog section for tips & tutorials (coming soon)  
 
-🌟 Features
-✅ Beautiful Hero section with coding resources
-✅ Fully functional Navbar with dropdown navigation
-✅ Dedicated pages for DSA, Web Development & Resources
-✅ Community and Contact pages
-⬜ Interactive coding challenges (coming soon)
-⬜ Blog section with tips & tutorials (coming soon)
+---
 
-🛠 Tech Stack
-Frontend: React.js, Tailwind CSS
+## 🛠️ **Tech Stack**
+- **Frontend:** React.js, Tailwind CSS  
+- **Routing:** React Router  
+- **Build Tool:** Vite  
+- **Version Control:** Git & GitHub  
 
-Routing: React Router
+---
 
-Build Tool: Vite
+## 🌟 **Contributions**
+Currently, contributions are **not open** while the core structure is being built.  
+Once the initial version is live, we’ll welcome contributions!
 
-Version Control: Git & GitHub
+---
 
-🤝 Contributions
-Currently, contributions are closed while I roll out the initial planned features.
-Once the roadmap milestones are met, the project will open for community contributions.
+## 📢 **Stay Updated**
+Follow my journey:  
+- 🌐 Website (Coming Soon)  
+- 📸 [Instagram: @codewithyash3](https://www.instagram.com/codewithyash3/)  
 
-📢 Stay Connected
-🌐 Website: codewithyash.me
+---
 
-📸 Instagram: @codewithyash3
-
-✨ Made with ❤️ by Yash Bisht
+### ✨ **Made with ❤️ by Yash Bisht**
