@@ -31,21 +31,20 @@ export default function Resources() {
             desc: "Frontend + Backend roadmap for 2025.",
             type: "pdf",
             icon: <RiRoadMapFill className="text-5xl text-yellow-400" />,
-            link: "/downloads/web-roadmap.pdf",
+            link: "/assets/downloads/web-roadmap.pdf",
         },
         {
             title: "System Design Notes",
             desc: "Beginner to advanced system design notes.",
             type: "pdf",
             icon: <FaBrain className="text-5xl text-purple-400" />,
-            link: "/downloads/system-design-notes.pdf",
-        },
+            link: "https://www.codewithharry.com/blogpost/javascript-cheatsheet" },
         {
             title: "Cheat Sheets Pack",
             desc: "Handy coding and CS fundamentals cheat sheets.",
             type: "pdf",
             icon: <FaFilePdf className="text-5xl text-red-400" />,
-            link: "/downloads/cheatsheets-pack.pdf",
+            link: "/assets/downloads/cheatsheet.pdf",
         },
     ];
 
