@@ -28,12 +28,6 @@ import WebDevRoadmaps from "./pages/WebDevRoadmaps";
 import APIsIntegration from "./pages/APIsIntegration";
 import DeploymentHosting from "./pages/DeploymentHosting";
 
-// Clerk
-import { SignIn, SignUp } from "@clerk/clerk-react";
-
-// 🔒 import ProtectedRoute (must use <Outlet /> inside it)
-import ProtectedRoute from "./components/ProtectedRoute";
-
 export default function App() {
   const [loading, setLoading] = useState(true);
 
@@ -62,28 +56,22 @@ export default function App() {
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
 
-            {/* Clerk Auth routes */}
-            <Route path="/sign-in/*" element={<SignIn routing="path" path="/sign-in" />} />
-            <Route path="/sign-up/*" element={<SignUp routing="path" path="/sign-up" />} />
-
-            {/* Protected explore section */}
-            <Route element={<ProtectedRoute />}>
-              <Route path="/explore/dsa" element={<DSA />} />
-              <Route path="/explore/webdev" element={<WebDev />} />
-              <Route path="/explore/system-design" element={<SystemDesign />} />
-              <Route path="/explore/dsa/easy" element={<EasyProblems />} />
-              <Route path="/explore/dsa/medium" element={<MediumProblems />} />
-              <Route path="/explore/dsa/hard" element={<HardProblems />} />
-              <Route path="/explore/dsa/pattern" element={<PatternProblems />} />
-              <Route path="/explore/dsa/company-tags" element={<CompanyTags />} />
-              <Route path="/explore/dsa/mock-tests" element={<MockTests />} />
-              <Route path="/explore/webdev/frontend" element={<Frontend />} />
-              <Route path="/explore/webdev/backend" element={<Backend />} />
-              <Route path="/explore/webdev/fullstack" element={<FullstackProjects />} />
-              <Route path="/explore/webdev/roadmaps" element={<WebDevRoadmaps />} />
-              <Route path="/explore/webdev/apis" element={<APIsIntegration />} />
-              <Route path="/explore/webdev/deployment" element={<DeploymentHosting />} />
-            </Route>
+            {/* Explore section (no authentication) */}
+            <Route path="/explore/dsa" element={<DSA />} />
+            <Route path="/explore/webdev" element={<WebDev />} />
+            <Route path="/explore/system-design" element={<SystemDesign />} />
+            <Route path="/explore/dsa/easy" element={<EasyProblems />} />
+            <Route path="/explore/dsa/medium" element={<MediumProblems />} />
+            <Route path="/explore/dsa/hard" element={<HardProblems />} />
+            <Route path="/explore/dsa/pattern" element={<PatternProblems />} />
+            <Route path="/explore/dsa/company-tags" element={<CompanyTags />} />
+            <Route path="/explore/dsa/mock-tests" element={<MockTests />} />
+            <Route path="/explore/webdev/frontend" element={<Frontend />} />
+            <Route path="/explore/webdev/backend" element={<Backend />} />
+            <Route path="/explore/webdev/fullstack" element={<FullstackProjects />} />
+            <Route path="/explore/webdev/roadmaps" element={<WebDevRoadmaps />} />
+            <Route path="/explore/webdev/apis" element={<APIsIntegration />} />
+            <Route path="/explore/webdev/deployment" element={<DeploymentHosting />} />
           </Routes>
         </main>
         <Footer />

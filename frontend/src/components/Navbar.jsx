@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { UserButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react";
 import Logo from "./Logo";
 import gsap from "gsap";
 
@@ -117,13 +116,7 @@ export default function Navbar() {
                   { text: "🛠 System Design", path: "/explore/system-design" },
                 ].map((item, index) => (
                   <li key={index} className="group">
-                    <Link
-                      to={item.path}
-                      className="block px-5 py-3 text-white hover:bg-blue-600/70"
-                      onClick={() => setIsDropdownOpen(false)}
-                    >
-                      {item.text}
-                    </Link>
+                    <NavLink to={item.path} label={item.text} />
                   </li>
                 ))}
               </ul>
@@ -131,20 +124,6 @@ export default function Navbar() {
           </li>
           <li><NavLink to="/resources" label="Resources" /></li>
           <li><NavLink to="/contact" label="Contact" /></li>
-
-          {/* Clerk Auth */}
-          <li>
-            <SignedOut>
-              <SignInButton mode="modal">
-                <button className="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700">
-                  Sign In
-                </button>
-              </SignInButton>
-            </SignedOut>
-            <SignedIn>
-              <UserButton afterSignOutUrl="/" />
-            </SignedIn>
-          </li>
         </ul>
       </div>
 
@@ -154,17 +133,6 @@ export default function Navbar() {
           <NavLink to="/" label="Home" />
           <NavLink to="/resources" label="Resources" />
           <NavLink to="/contact" label="Contact" />
-          {/* Auth in mobile */}
-          <SignedOut>
-            <SignInButton mode="modal">
-              <button className="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700">
-                Sign In
-              </button>
-            </SignInButton>
-          </SignedOut>
-          <SignedIn>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
         </div>
       )}
     </nav>
