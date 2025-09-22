@@ -88,6 +88,8 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 font-medium text-lg items-center">
           <li><NavLink to="/" label="Home" /></li>
+
+          {/* Desktop Explore Dropdown */}
           <li className="relative" ref={dropdownRef}>
             <button
               onClick={() => setIsDropdownOpen((prev) => !prev)}
@@ -122,6 +124,7 @@ export default function Navbar() {
               </ul>
             )}
           </li>
+
           <li><NavLink to="/resources" label="Resources" /></li>
           <li><NavLink to="/contact" label="Contact" /></li>
         </ul>
@@ -131,6 +134,36 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden flex flex-col gap-4 px-6 py-4 bg-[#0D1117] border-t border-gray-700">
           <NavLink to="/" label="Home" />
+
+          {/* Explore Dropdown for Mobile */}
+          <div className="flex flex-col">
+            <button
+              onClick={() => setIsDropdownOpen((prev) => !prev)}
+              className="flex justify-between items-center w-full text-white px-2 py-2 font-medium"
+            >
+              Explore
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 22 22"
+                className={`w-5 h-5 transition-transform ${
+                  isDropdownOpen ? "rotate-180" : "rotate-0"
+                }`}
+              >
+                <path
+                  d="M11 14.667a.92.92 0 0 1-.587-.21l-5.5-4.584A.918.918 0 1 1 6.086 8.46l4.913 4.107 4.914-3.96a.917.917 0 0 1 1.292.137.917.917 0 0 1-.128 1.339l-5.5 4.427a.92.92 0 0 1-.578.156"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+            {isDropdownOpen && (
+              <div className="flex flex-col ml-2 mt-1 border-l border-gray-600 pl-2">
+                <NavLink to="/explore/dsa" label="🟢 DSA Problems" />
+                <NavLink to="/explore/webdev" label="🎨 Web Development" />
+                <NavLink to="/explore/system-design" label="🛠 System Design" />
+              </div>
+            )}
+          </div>
+
           <NavLink to="/resources" label="Resources" />
           <NavLink to="/contact" label="Contact" />
         </div>
