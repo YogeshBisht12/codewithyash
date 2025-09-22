@@ -1,13 +1,10 @@
-import { RedirectToSignIn, useAuth } from "@clerk/clerk-react";
+import { Navigate, Outlet } from "react-router-dom";
+import { useUser } from "@clerk/clerk-react";
 
-export default function ProtectedRoute({ children }) {
-  const { isSignedIn } = useAuth();
+export default function ProtectedRoute() {
+  const { isSignedIn, isLoaded } = useUser();
 
-  // If user is not signed in, redirect them to Clerk's sign-in page
-  if (!isSignedIn) {
-    return <RedirectToSignIn />;
-  }
+  if (!isLoaded) return null; // or spinner
 
-  // If user is signed in, allow access
-  return children;
+  return isSignedIn ? <Outlet /> : <Navigate to="/sign-in" />;
 }
