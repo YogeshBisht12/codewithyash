@@ -4,30 +4,33 @@ import Logo from "./Logo";
 import gsap from "gsap";
 
 export default function Navbar() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const location = useLocation();
 
+  // Click outside for desktop dropdown
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
+        setIsDesktopDropdownOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // GSAP animation for desktop dropdown
   useEffect(() => {
-    if (isDropdownOpen && dropdownRef.current) {
+    if (isDesktopDropdownOpen && dropdownRef.current) {
       gsap.fromTo(
         dropdownRef.current,
         { opacity: 0, y: -10, scale: 0.95 },
         { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "power3.out" }
       );
     }
-  }, [isDropdownOpen]);
+  }, [isDesktopDropdownOpen]);
 
   const NavLink = ({ to, label }) => {
     const isActive = location.pathname === to;
@@ -90,18 +93,17 @@ export default function Navbar() {
           <li><NavLink to="/" label="Home" /></li>
 
           {/* Desktop Explore Dropdown */}
-          <li className="relative" ref={dropdownRef}>
+          <li className="relative z-50" ref={dropdownRef}>
             <button
-              onClick={() => setIsDropdownOpen((prev) => !prev)}
+              onClick={() => setIsDesktopDropdownOpen((prev) => !prev)}
               className="relative group flex items-center gap-1 text-white hover:text-blue-400"
             >
               Explore
-              <span className="absolute bottom-0 left-0 h-[2px] bg-blue-500 rounded-full w-0 group-hover:w-full group-hover:shadow-[0_0_8px_#3b82f6] transition-all duration-500 ease-out"></span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 22 22"
                 className={`w-5 h-5 transition-transform ${
-                  isDropdownOpen ? "rotate-180" : "rotate-0"
+                  isDesktopDropdownOpen ? "rotate-180" : "rotate-0"
                 }`}
               >
                 <path
@@ -110,8 +112,8 @@ export default function Navbar() {
                 />
               </svg>
             </button>
-            {isDropdownOpen && (
-              <ul className="absolute top-10 left-0 w-56 bg-[#1E2736]/80 backdrop-blur-md border border-blue-800 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.4)] overflow-hidden">
+            {isDesktopDropdownOpen && (
+              <ul className="absolute top-10 left-0 w-56 bg-[#1E2736]/80 backdrop-blur-md border border-blue-800 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.4)] overflow-visible">
                 {[
                   { text: "🟢 DSA Problems", path: "/explore/dsa" },
                   { text: "🎨 Web Development", path: "/explore/webdev" },
@@ -135,10 +137,10 @@ export default function Navbar() {
         <div className="md:hidden flex flex-col gap-4 px-6 py-4 bg-[#0D1117] border-t border-gray-700">
           <NavLink to="/" label="Home" />
 
-          {/* Explore Dropdown for Mobile */}
+          {/* Mobile Explore Dropdown */}
           <div className="flex flex-col">
             <button
-              onClick={() => setIsDropdownOpen((prev) => !prev)}
+              onClick={() => setIsMobileDropdownOpen((prev) => !prev)}
               className="flex justify-between items-center w-full text-white px-2 py-2 font-medium"
             >
               Explore
@@ -146,7 +148,7 @@ export default function Navbar() {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 22 22"
                 className={`w-5 h-5 transition-transform ${
-                  isDropdownOpen ? "rotate-180" : "rotate-0"
+                  isMobileDropdownOpen ? "rotate-180" : "rotate-0"
                 }`}
               >
                 <path
@@ -155,7 +157,7 @@ export default function Navbar() {
                 />
               </svg>
             </button>
-            {isDropdownOpen && (
+            {isMobileDropdownOpen && (
               <div className="flex flex-col ml-2 mt-1 border-l border-gray-600 pl-2">
                 <NavLink to="/explore/dsa" label="🟢 DSA Problems" />
                 <NavLink to="/explore/webdev" label="🎨 Web Development" />
