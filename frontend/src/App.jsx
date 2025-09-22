@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import HighlightBanner from "./components/HighlightBanner"; 
 
+// pages
 import Home from "./pages/Home";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
@@ -26,6 +27,9 @@ import FullstackProjects from "./pages/FullstackProjects";
 import WebDevRoadmaps from "./pages/WebDevRoadmaps";
 import APIsIntegration from "./pages/APIsIntegration";
 import DeploymentHosting from "./pages/DeploymentHosting";
+
+// 🔒 import your ProtectedRoute
+import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -50,13 +54,16 @@ export default function App() {
         <Navbar />
         <main className="flex-grow">
           <Routes>
+            {/* Public routes */}
             <Route path="/" element={<Home />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
 
+            {/* Protected explore section */}
             <Route
               path="/explore/*"
               element={
+                <ProtectedRoute>
                   <Routes>
                     <Route path="dsa" element={<DSA />} />
                     <Route path="webdev" element={<WebDev />} />
@@ -74,6 +81,7 @@ export default function App() {
                     <Route path="webdev/apis" element={<APIsIntegration />} />
                     <Route path="webdev/deployment" element={<DeploymentHosting />} />
                   </Routes>
+                </ProtectedRoute>
               }
             />
           </Routes>

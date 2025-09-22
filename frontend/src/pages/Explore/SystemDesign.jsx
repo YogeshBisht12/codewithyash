@@ -6,133 +6,94 @@ import { FaCogs, FaDatabase, FaBalanceScale, FaBolt, FaProjectDiagram, FaBrain, 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SystemDesign() {
-    const categories = [
-        {
-            title: "Scalability Basics",
-            desc: "Learn how to scale systems efficiently and handle high traffic.",
-            icon: <FaChartLine className="text-green-400" />,
-            link: "https://www.geeksforgeeks.org/system-design/what-is-scalability/",
-        },
-        {
-            title: "Databases",
-            desc: "Understand SQL, NoSQL, indexing, sharding, and replication.",
-            icon: <FaDatabase className="text-blue-400" />,
-            link: "https://www.mongodb.com/nosql-explained",
-        },
-        {
-            title: "Load Balancing",
-            desc: "Distribute traffic across servers for optimal performance.",
-            icon: <FaBalanceScale className="text-yellow-400" />,
-            link: "https://aws.amazon.com/elasticloadbalancing/",
-        },
-        {
-            title: "Caching Strategies",
-            desc: "Implement Redis, Memcached, and CDN caching for speed.",
-            icon: <FaBolt className="text-orange-400" />,
-            link: "https://redis.io/docs/latest/develop/what-is-redis/",
-        },
-        {
-            title: "Design Patterns",
-            desc: "Key patterns used in designing scalable and maintainable systems.",
-            icon: <FaProjectDiagram className="text-purple-400" />,
-            link: "https://refactoring.guru/design-patterns",
-        },
-        {
-            title: "Interview Problems",
-            desc: "Solve FAANG-level system design interview questions.",
-            icon: <FaBrain className="text-pink-400" />,
-            link: "https://interviewing.io/guides/system-design-interview",
-        },
-    ];
+  const categories = [
+    { title: "Scalability Basics", desc: "Learn how to scale systems efficiently and handle high traffic.", icon: <FaChartLine className="text-green-400 text-3xl" />, link: "https://www.geeksforgeeks.org/system-design/what-is-scalability/" },
+    { title: "Databases", desc: "Understand SQL, NoSQL, indexing, sharding, and replication.", icon: <FaDatabase className="text-blue-400 text-3xl" />, link: "https://www.mongodb.com/nosql-explained" },
+    { title: "Load Balancing", desc: "Distribute traffic across servers for optimal performance.", icon: <FaBalanceScale className="text-yellow-400 text-3xl" />, link: "https://aws.amazon.com/elasticloadbalancing/" },
+    { title: "Caching Strategies", desc: "Implement Redis, Memcached, and CDN caching for speed.", icon: <FaBolt className="text-orange-400 text-3xl" />, link: "https://redis.io/docs/latest/develop/what-is-redis/" },
+    { title: "Design Patterns", desc: "Key patterns used in designing scalable and maintainable systems.", icon: <FaProjectDiagram className="text-purple-400 text-3xl" />, link: "https://refactoring.guru/design-patterns" },
+    { title: "Interview Problems", desc: "Solve FAANG-level system design interview questions.", icon: <FaBrain className="text-pink-400 text-3xl" />, link: "https://interviewing.io/guides/system-design-interview" },
+  ];
 
-    const sectionRef = useRef(null);
-    const cardsRef = useRef([]);
-    cardsRef.current = [];
+  const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
+  cardsRef.current = [];
 
-    const addCardRef = (el) => {
-        if (el && !cardsRef.current.includes(el)) {
-            cardsRef.current.push(el);
-        }
-    };
+  const addCardRef = (el) => el && !cardsRef.current.includes(el) && cardsRef.current.push(el);
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.fromTo(
-                sectionRef.current.querySelector("h1"),
-                { opacity: 0, y: -50 },
-                { opacity: 1, y: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 80%" } }
-            );
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        sectionRef.current.querySelector("h1"),
+        { opacity: 0, y: -50 },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 80%" } }
+      );
+      gsap.fromTo(
+        sectionRef.current.querySelector("p"),
+        { opacity: 0, y: -30 },
+        { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 0.2, scrollTrigger: { trigger: sectionRef.current, start: "top 80%" } }
+      );
+      cardsRef.current.forEach((card, index) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, scale: 0.9, y: 40 },
+          { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power3.out", delay: index * 0.15, scrollTrigger: { trigger: card, start: "top 85%" } }
+        );
+      });
+    });
+    return () => ctx.revert();
+  }, []);
 
-            gsap.fromTo(
-                sectionRef.current.querySelector("p"),
-                { opacity: 0, y: -30 },
-                { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 0.2, scrollTrigger: { trigger: sectionRef.current, start: "top 80%" } }
-            );
+  return (
+    <section ref={sectionRef} className="relative bg-[#0D1117] min-h-screen text-white overflow-hidden px-6 md:px-12 pt-24 pb-16">
+      
+      {/* Background Blobs */}
+      <div className="absolute w-[300px] h-[300px] bg-blue-900 rounded-full blur-[160px] opacity-20 top-20 left-[-100px] animate-pulse"></div>
+      <div className="absolute w-[250px] h-[250px] bg-purple-800 rounded-full blur-[140px] opacity-15 bottom-10 right-[-80px] animate-pulse"></div>
 
-            cardsRef.current.forEach((card, index) => {
-                gsap.fromTo(
-                    card,
-                    { opacity: 0, scale: 0.9, y: 30 },
-                    {
-                        opacity: 1,
-                        scale: 1,
-                        y: 0,
-                        duration: 1,
-                        ease: "power3.out",
-                        delay: index * 0.15,
-                        scrollTrigger: { trigger: card, start: "top 85%" },
-                    }
-                );
-            });
-        });
+      {/* Heading */}
+      <div className="text-center mb-16 relative z-10 flex flex-col items-center gap-3">
+        <div className="flex items-center gap-3">
+          <FaCogs className="text-blue-400 text-5xl animate-pulse" />
+          <h1 className="text-5xl sm:text-6xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            System Design
+          </h1>
+        </div>
+        <div className="w-28 h-[3px] bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2"></div>
+        <p className="text-lg text-gray-300 max-w-2xl mx-auto mt-4">
+          Master the art of designing scalable, fault-tolerant, and high-performance systems.
+        </p>
+      </div>
 
-        return () => ctx.revert();
-    }, []);
-
-    return (
-        <section ref={sectionRef} className="relative bg-[#0D1117] min-h-screen text-white overflow-hidden px-6 md:px-12 pt-24 pb-16">
-            
-            <div className="absolute w-[400px] h-[400px] bg-blue-900 rounded-full blur-[180px] opacity-25 top-20 left-[-100px]"></div>
-            <div className="absolute w-[350px] h-[350px] bg-purple-800 rounded-full blur-[160px] opacity-20 bottom-10 right-[-100px]"></div>
-            <div className="absolute w-[250px] h-[250px] bg-pink-700 rounded-full blur-[140px] opacity-15 top-[60%] left-[40%]"></div>
-
-            
-            <div className="text-center mb-16 relative z-10 flex flex-col items-center gap-3">
-                <div className="flex items-center gap-3">
-                    <FaCogs className="text-blue-400 text-5xl animate-pulse" />
-                    <h1 className="text-5xl sm:text-6xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                        System Design
-                    </h1>
-                </div>
-                <p className="text-lg text-gray-300 max-w-2xl mx-auto mt-2">
-                    Master the art of designing scalable, fault-tolerant, and high-performance systems.
-                </p>
+      {/* Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto relative z-10">
+        {categories.map((item, index) => (
+          <div
+            key={index}
+            ref={addCardRef}
+            className="bg-[#161B22] border border-gray-800 rounded-2xl p-8 shadow-md flex flex-col items-center text-center
+                       hover:border-blue-600 hover:shadow-lg hover:shadow-blue-900/30 transition-all duration-300"
+          >
+            {/* Icon wrapper */}
+            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#0D1117] border border-gray-700 mb-4">
+              {item.icon}
             </div>
 
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto relative z-10">
-                {categories.map((item, index) => (
-                    <div
-                        key={index}
-                        ref={addCardRef}
-                        className="bg-gradient-to-br from-[#1E2736] to-[#232D3E] p-6 rounded-2xl shadow-lg border border-gray-700 hover:scale-105 hover:shadow-blue-900 transition transform duration-300 relative group overflow-hidden"
-                    >
-                        <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-500 rounded-2xl transition-all duration-500"></div>
-                        <div className="text-5xl mb-4">{item.icon}</div>
-                        <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
-                        <p className="text-gray-400 text-sm mb-6">{item.desc}</p>
+            <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">{item.desc}</p>
 
-                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="relative group w-fit mx-auto block">
-                            <button className="relative px-5 py-2 font-medium rounded-lg text-blue-400 border border-blue-500 w-[180px] overflow-hidden">
-                                <span className="relative z-20 transition-colors duration-700 group-hover:text-white">
-                                    Explore →
-                                </span>
-                                <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-[900ms] ease-in-out z-10"></span>
-                            </button>
-                        </a>
-                    </div>
-                ))}
-            </div>
-        </section>
-    );
+            <a href={item.link} target="_blank" rel="noopener noreferrer" className="w-full">
+              <button
+                className="w-full px-6 py-3 relative text-white font-medium rounded-lg overflow-hidden 
+                           before:absolute before:inset-0 before:bg-blue-600 before:scale-x-0 before:origin-left 
+                           before:transition-transform before:duration-500 hover:before:scale-x-100"
+              >
+                <span className="relative z-10">Explore →</span>
+              </button>
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
